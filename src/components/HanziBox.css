@@ -3,4 +3,7 @@
   width: 96px;
   height: 96px;
   border: 1px solid black;
+  text-align: center;
+  font-size: 85px;
+  line-height: 95px;
 }
