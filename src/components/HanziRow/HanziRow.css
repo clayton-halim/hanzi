@@ -1,4 +1,16 @@
-.hanzi-row {
+.details {
+  display: flex;
+}
+
+.detail-text {
+  margin-right: 15px;
+}
+
+.detail-text > span {
+  font-weight: bold;
+}
+
+.boxes {
   display: flex;
   flex-wrap: wrap;
 }

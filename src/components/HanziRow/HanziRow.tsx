@@ -6,14 +6,31 @@ import "./HanziRow.css";
 type Props = {
   boxes: number;
   character: string;
+  meaning: string;
+  reading: string;
 };
 
-const HanziRow: React.FC<Props> = ({ boxes, character }: Props) => {
+const HanziRow: React.FC<Props> = ({
+  boxes,
+  character,
+  meaning,
+  reading
+}: Props) => {
   return (
     <div className="hanzi-row">
-      {new Array(boxes).fill(0).map((_, index) => (
-        <HanziBox character={index < 3 ? character : ""} />
-      ))}
+      <div className="details">
+        <p className="detail-text">
+          <span>MEANING:</span> {meaning}
+        </p>
+        <p className="detail-text">
+          <span>READING:</span> {reading}
+        </p>
+      </div>
+      <div className="boxes">
+        {new Array(boxes).fill(0).map((_, index) => (
+          <HanziBox character={index < 3 ? character : ""} />
+        ))}
+      </div>
     </div>
   );
 };

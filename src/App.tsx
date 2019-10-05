@@ -7,7 +7,12 @@ const App: React.FC = () => {
     <div className="App">
       <div className="container">
         <h1>Hanzi Worksheets</h1>
-        <HanziRow boxes={18} character="分" />
+        <HanziRow
+          boxes={18}
+          character="分"
+          meaning="Part, Understand"
+          reading="fun"
+        />
       </div>
     </div>
   );
