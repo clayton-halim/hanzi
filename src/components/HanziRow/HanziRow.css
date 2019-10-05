@@ -1,3 +1,7 @@
+.hanzi-row {
+  max-width: 985px;
+}
+
 .details {
   display: flex;
 }
