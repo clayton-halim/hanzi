@@ -1,3 +1,8 @@
+@font-face {
+  font-family: StrokeOrder;
+  src: url("../../fonts/strokeorder.ttf");
+}
+
 .hanzi-box {
   margin: 0 5px 5px 0;
   width: 96px;
@@ -6,4 +11,5 @@
   text-align: center;
   font-size: 85px;
   line-height: 95px;
+  font-family: StrokeOrder;
 }
