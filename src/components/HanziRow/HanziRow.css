@@ -1,0 +1,9 @@
+.hanzi-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hanzi-box:nth-child(2),
+.hanzi-box:nth-child(3) {
+  color: rgba(0, 0, 0, 0.15);
+}
