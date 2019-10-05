@@ -28,7 +28,7 @@ const HanziRow: React.FC<Props> = ({
       </div>
       <div className="boxes">
         {new Array(boxes).fill(0).map((_, index) => (
-          <HanziBox character={index < 3 ? character : ""} />
+          <HanziBox key={index} character={index < 3 ? character : ""} />
         ))}
       </div>
     </div>
