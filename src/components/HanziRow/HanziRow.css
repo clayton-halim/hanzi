@@ -23,3 +23,10 @@
 .hanzi-box:nth-child(3) {
   color: rgba(0, 0, 0, 0.15);
 }
+
+@media print {
+  .hanzi-row {
+    width: 980%;
+    page-break-inside: avoid;
+  }
+}
