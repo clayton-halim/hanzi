@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import HanziRow from "./components/HanziRow";
+import SelectorPanel from "./components/SelectorPanel";
 
 const App: React.FC = () => {
   return (
@@ -9,10 +10,11 @@ const App: React.FC = () => {
         <h1>Hanzi Worksheets</h1>
         <HanziRow
           boxes={18}
-          character="分"
+          character="与"
           meaning="Part, Understand"
           reading="fun"
         />
+        <SelectorPanel />
       </div>
     </div>
   );

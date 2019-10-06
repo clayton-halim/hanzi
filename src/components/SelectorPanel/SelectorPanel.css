@@ -1,0 +1,19 @@
+.selector-panel {
+  position: fixed;
+  width: 25%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  padding: 15px;
+  border-left: 1px solid black;
+  background: rgba(255, 255, 255, 0.8);
+  overflow: scroll;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media print {
+  .selector-panel {
+    display: none;
+  }
+}
