@@ -7,11 +7,12 @@
 }
 
 .detail-text {
-  margin-right: 15px;
+  margin-right: 20px;
 }
 
 .detail-text > span {
   font-weight: bold;
+  font-size: 12px;
 }
 
 .boxes {
