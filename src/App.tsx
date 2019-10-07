@@ -13,7 +13,7 @@ const App: React.FC = () => {
       setHanziList(prevHanziList => [...prevHanziList, hanzi]);
     } else {
       setHanziList(prevHanziList =>
-        [...prevHanziList].filter(entry => entry.character != hanzi.character)
+        [...prevHanziList].filter(entry => entry.character !== hanzi.character)
       );
     }
   };
