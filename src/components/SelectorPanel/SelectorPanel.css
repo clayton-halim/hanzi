@@ -7,9 +7,26 @@
   padding: 15px;
   border-left: 1px solid black;
   background: rgba(255, 255, 255, 0.8);
-  overflow: scroll;
+}
+
+.filter {
+  display: flex;
+}
+
+.filter > p {
+  font-weight: bold;
+  margin: 0;
+  margin-right: 15px;
+}
+
+.view {
   display: flex;
   flex-wrap: wrap;
+  border-top: 1px solid black;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  height: 90%;
+  overflow: scroll;
 }
 
 @media print {
