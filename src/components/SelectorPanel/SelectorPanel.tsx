@@ -53,7 +53,7 @@ const SelectorPanel: React.FC<Props> = ({ data, onClick }: Props) => {
         </select>
       </div>
       <div className="view">
-        {filteredData.map((entry, index) => (
+        {filteredData.map(entry => (
           <Selector
             key={entry.character}
             character={entry.character}
