@@ -66,7 +66,7 @@ const SelectorPanel: React.FC<Props> = ({ data, onClick }: Props) => {
       <div className="view">
         {filteredData.map((entry, index) => (
           <Selector
-            key={index}
+            key={entry.character}
             character={entry.character}
             onClick={selected => onClick(selected, entry)}
           />
