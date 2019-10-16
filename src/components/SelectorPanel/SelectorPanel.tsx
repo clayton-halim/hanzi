@@ -14,7 +14,7 @@ type FilterView = "freq" | "hsk1" | "hsk2" | "hsk3" | "hsk4" | "hsk5" | "hsk6";
 function filterData(data: HanziData[], view: FilterView) {
   switch (view) {
     case "freq":
-      return [...data].sort(entry => entry.freq_rank);
+      return [...data].sort(entry => entry.frequency_rank);
     case "hsk1":
       return data.filter(entry => entry.hsk === 1);
     case "hsk2":

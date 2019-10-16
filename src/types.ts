@@ -3,5 +3,5 @@ export type HanziData = {
   pinyin: string;
   meaning: string;
   hsk: number;
-  freq_rank: number;
+  frequency_rank: number;
 };
