@@ -1,20 +1,31 @@
 import React, { useState } from "react";
 
-import "./App.css";
-import { HanziData } from "./types";
 import HanziRow from "./components/HanziRow";
 import SelectorPanel from "./components/SelectorPanel";
 
-const App: React.FC = () => {
-  const [hanziList, setHanziList] = useState<HanziData[]>([]);
+import data from "./data/hanzi.json";
+import "./App.css";
 
-  const onClick = (selected: boolean, hanzi: HanziData) => {
+import { HanziData } from "./types";
+
+const hanziMap = new Map<string, HanziData>();
+const invalidHanzi = {
+  character: "",
+  pinyin: "INVALID",
+  meaning: "INVALID",
+  reading: "INVALID"
+};
+
+data.forEach(entry => hanziMap.set(entry.character, entry));
+
+const App: React.FC = () => {
+  const [hanziList, setHanziList] = useState<string[]>([]);
+
+  const onClick = (selected: boolean, hanzi: string) => {
     if (selected) {
-      setHanziList(prevHanziList => [...prevHanziList, hanzi]);
+      setHanziList(hanziList => [...hanziList, hanzi]);
     } else {
-      setHanziList(prevHanziList =>
-        [...prevHanziList].filter(entry => entry.character !== hanzi.character)
-      );
+      setHanziList(hanziList => hanziList.filter(h => h !== hanzi));
     }
   };
 
@@ -22,16 +33,23 @@ const App: React.FC = () => {
     <div className="App">
       <div className="container">
         <h1>Hanzi Worksheets</h1>
-        {hanziList.map(entry => (
-          <HanziRow
-            key={entry.character}
-            boxes={18}
-            character={entry.character}
-            meaning={entry.meaning}
-            reading={entry.pinyin}
-          />
-        ))}
-        <SelectorPanel onClick={onClick} />
+        {hanziList.map(entry => {
+          const hanzi = hanziMap.get(entry) || invalidHanzi;
+          return (
+            <HanziRow
+              key={hanzi.character}
+              boxes={18}
+              character={hanzi.character}
+              meaning={hanzi.meaning}
+              reading={hanzi.pinyin}
+            />
+          );
+        })}
+        <SelectorPanel
+          data={data}
+          selectedHanzi={new Set(hanziList)}
+          onClick={onClick}
+        />
       </div>
     </div>
   );

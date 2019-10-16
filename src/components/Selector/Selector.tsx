@@ -1,25 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "./Selector.css";
 
 type Props = {
   character: string;
+  selected: boolean;
   onClick: (selected: boolean) => void;
 };
 
 const Selector: React.FC<Props> = (props: Props) => {
-  const [selected, setSelected] = useState(false);
+  const { character, selected, onClick } = props;
   const color = selected ? "#f00" : "black";
 
-  const onClick = () => {
-    const newSelected = !selected;
-    setSelected(newSelected);
-    props.onClick(newSelected);
-  };
+  const handleOnClick = () => onClick(!selected);
 
   return (
-    <div className="selector" style={{ color }} onClick={onClick}>
-      {props.character}
+    <div className="selector" style={{ color }} onClick={handleOnClick}>
+      {character}
     </div>
   );
 };

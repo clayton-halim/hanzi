@@ -6,7 +6,8 @@ import "./SelectorPanel.css";
 
 export type Props = {
   data: HanziData[];
-  onClick: (selected: boolean, hanzi: HanziData) => void;
+  selectedHanzi: Set<string>;
+  onClick: (selected: boolean, hanzi: string) => void;
 };
 
 type FilterView = "freq" | "hsk1" | "hsk2" | "hsk3" | "hsk4" | "hsk5" | "hsk6";
@@ -30,7 +31,11 @@ function filterData(data: HanziData[], view: FilterView) {
   }
 }
 
-const SelectorPanel: React.FC<Props> = ({ data, onClick }: Props) => {
+const SelectorPanel: React.FC<Props> = ({
+  data,
+  onClick,
+  selectedHanzi
+}: Props) => {
   const [view, setView] = useState<FilterView>("freq");
 
   const handleChange = (event: React.FormEvent<HTMLSelectElement>) =>
@@ -57,7 +62,8 @@ const SelectorPanel: React.FC<Props> = ({ data, onClick }: Props) => {
           <Selector
             key={entry.character}
             character={entry.character}
-            onClick={selected => onClick(selected, entry)}
+            selected={selectedHanzi.has(entry.character)}
+            onClick={selected => onClick(selected, entry.character)}
           />
         ))}
       </div>

@@ -1,3 +1,3 @@
-import SelectorPanelContainer from "./SelectorPanelContainer";
+import SelectorPanel from "./SelectorPanel";
 
-export default SelectorPanelContainer;
+export default SelectorPanel;
