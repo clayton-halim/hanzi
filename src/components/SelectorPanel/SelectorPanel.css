@@ -27,6 +27,7 @@
   padding-bottom: 15px;
   height: 90%;
   overflow: scroll;
+  align-content: flex-start;
 }
 
 @media print {
