@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/hanzi/static/css/main.675186a8.chunk.css",
+    "main.js": "/hanzi/static/js/main.ed96de53.chunk.js",
+    "main.js.map": "/hanzi/static/js/main.ed96de53.chunk.js.map",
+    "runtime-main.js": "/hanzi/static/js/runtime-main.37ac83b8.js",
+    "runtime-main.js.map": "/hanzi/static/js/runtime-main.37ac83b8.js.map",
+    "static/js/2.4a7ebe7c.chunk.js": "/hanzi/static/js/2.4a7ebe7c.chunk.js",
+    "static/js/2.4a7ebe7c.chunk.js.map": "/hanzi/static/js/2.4a7ebe7c.chunk.js.map",
+    "index.html": "/hanzi/index.html",
+    "precache-manifest.e099f16aca740d261d2ab78c176a6f05.js": "/hanzi/precache-manifest.e099f16aca740d261d2ab78c176a6f05.js",
+    "service-worker.js": "/hanzi/service-worker.js",
+    "static/css/main.675186a8.chunk.css.map": "/hanzi/static/css/main.675186a8.chunk.css.map",
+    "static/media/HanziBox.css": "/hanzi/static/media/strokeorder.2935323f.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.37ac83b8.js",
+    "static/js/2.4a7ebe7c.chunk.js",
+    "static/css/main.675186a8.chunk.css",
+    "static/js/main.ed96de53.chunk.js"
+  ]
+}
