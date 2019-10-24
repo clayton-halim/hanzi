@@ -9,11 +9,12 @@
   background: rgba(255, 255, 255, 0.8);
 }
 
-.filter {
+.select-tool {
   display: flex;
+  margin-bottom: 5px;
 }
 
-.filter > p {
+.select-tool > p {
   font-weight: bold;
   margin: 0;
   margin-right: 15px;
@@ -28,6 +29,7 @@
   height: 90%;
   overflow: scroll;
   align-content: flex-start;
+  margin-top: 15px;
 }
 
 @media print {

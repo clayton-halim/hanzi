@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import FuzzySearch from "fuzzy-search";
 
 import Selector from "../Selector";
 import { HanziData } from "../../types";
@@ -37,15 +38,37 @@ const SelectorPanel: React.FC<Props> = ({
   selectedHanzi
 }: Props) => {
   const [view, setView] = useState<FilterView>("freq");
+  const [searchQuery, setSearchQuery] = useState("");
+  const filteredData = filterData(data, view);
+  const [searchedData, setSearchedData] = useState<HanziData[]>(filteredData);
+  const searcher = new FuzzySearch(filteredData, ["meaning"], { sort: true });
+  let timeout: NodeJS.Timeout | undefined;
+
+  useEffect(() => {
+    setSearchedData(searcher.search(searchQuery));
+  }, [view]);
 
   const handleChange = (event: React.FormEvent<HTMLSelectElement>) =>
     setView(event.currentTarget.value as FilterView);
 
-  const filteredData = filterData(data, view);
+  const handleSearch = (event: React.FormEvent<HTMLInputElement>) => {
+    if (timeout) clearTimeout(timeout);
+
+    const query = event.currentTarget.value;
+    setSearchQuery(query);
+
+    timeout = setTimeout(() => {
+      setSearchedData(searcher.search(query));
+    }, 700);
+  };
 
   return (
     <div className="selector-panel">
-      <div className="filter">
+      <div className="select-tool">
+        <p>Search: </p>
+        <input value={searchQuery} onChange={handleSearch} />
+      </div>
+      <div className="select-tool">
         <p>Filter: </p>
         <select value={view} onChange={handleChange}>
           <option value="freq">Hanzi Frequency</option>
@@ -58,7 +81,7 @@ const SelectorPanel: React.FC<Props> = ({
         </select>
       </div>
       <div className="view">
-        {filteredData.map(entry => (
+        {searchedData.map(entry => (
           <Selector
             key={entry.character}
             character={entry.character}
