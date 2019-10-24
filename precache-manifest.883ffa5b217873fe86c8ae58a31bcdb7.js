@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e30eeaa8352bae34f69cc69902f25d60",
+    "revision": "8e119ae057969e4a44fea851d77b45b8",
     "url": "/hanzi/index.html"
   },
   {
