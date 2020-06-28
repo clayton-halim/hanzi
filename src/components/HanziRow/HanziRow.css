@@ -50,4 +50,8 @@
     width: 980%;
     page-break-inside: avoid;
   }
+
+  .remove-button {
+    display: none;
+  }
 }
