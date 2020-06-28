@@ -1,3 +1,8 @@
+@font-face {
+  font-family: StrokeOrder;
+  src: url("fonts/strokeorder.ttf");
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
