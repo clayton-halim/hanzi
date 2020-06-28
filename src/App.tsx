@@ -42,6 +42,9 @@ const App: React.FC = () => {
               character={hanzi.character}
               meaning={hanzi.meaning}
               reading={hanzi.pinyin}
+              onRemove={
+                () => setHanziList(hanziList => hanziList.filter(h => h !== hanzi.character))
+              }
             />
           );
         })}

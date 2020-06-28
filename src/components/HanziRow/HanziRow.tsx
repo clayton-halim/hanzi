@@ -8,13 +8,15 @@ type Props = {
   character: string;
   meaning: string;
   reading: string;
+  onRemove: () => void;
 };
 
 const HanziRow: React.FC<Props> = ({
   boxes,
   character,
   meaning,
-  reading
+  reading,
+  onRemove
 }: Props) => {
   return (
     <div className="hanzi-row">
@@ -25,6 +27,7 @@ const HanziRow: React.FC<Props> = ({
         <p className="detail-text">
           <span>READING:</span> {reading}
         </p>
+        <button className="remove-button" onClick={onRemove}>×</button>
       </div>
       <div className="boxes">
         {new Array(boxes).fill(0).map((_, index) => (

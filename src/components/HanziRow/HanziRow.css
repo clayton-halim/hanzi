@@ -1,9 +1,10 @@
 .hanzi-row {
-  max-width: 985px;
+  max-width: 906px;
 }
 
 .details {
   display: flex;
+  align-items: center;
 }
 
 .detail-text {
@@ -16,13 +17,32 @@
 }
 
 .boxes {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(9, 96px);
+  grid-row-gap: 5px;
+  grid-column-gap: 5px;
 }
 
 .hanzi-box:nth-child(2),
 .hanzi-box:nth-child(3) {
   color: rgba(0, 0, 0, 0.15);
+}
+
+.remove-button {
+  border: 0;
+  margin-left: auto;
+  font-weight: bolder;
+  height: 1.5em;
+  width: 1.5em;
+  font-size: large;
+  padding: 0;
+  /* border-radius: 50%; */
+}
+
+.remove-button:hover {
+  background-color: #D8473F;
+  color: white;
 }
 
 @media print {
