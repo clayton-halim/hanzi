@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import FuzzySearch from "fuzzy-search";
 
 import Selector from "../Selector";
@@ -40,26 +40,14 @@ const SelectorPanel: React.FC<Props> = ({
   const [view, setView] = useState<FilterView>("freq");
   const [searchQuery, setSearchQuery] = useState("");
   const filteredData = filterData(data, view);
-  const [searchedData, setSearchedData] = useState<HanziData[]>(filteredData);
   const searcher = new FuzzySearch(filteredData, ["meaning"], { sort: true });
-  let timeout: NodeJS.Timeout | undefined;
-
-  useEffect(() => {
-    setSearchedData(searcher.search(searchQuery));
-  }, [view]);
+  const searchedData = searcher.search(searchQuery);
 
   const handleChange = (event: React.FormEvent<HTMLSelectElement>) =>
     setView(event.currentTarget.value as FilterView);
 
   const handleSearch = (event: React.FormEvent<HTMLInputElement>) => {
-    if (timeout) clearTimeout(timeout);
-
-    const query = event.currentTarget.value;
-    setSearchQuery(query);
-
-    timeout = setTimeout(() => {
-      setSearchedData(searcher.search(query));
-    }, 700);
+    setSearchQuery(event.currentTarget.value);
   };
 
   return (
