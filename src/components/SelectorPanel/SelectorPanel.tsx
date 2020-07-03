@@ -43,11 +43,11 @@ const SelectorPanel: React.FC<Props> = ({
   const searcher = new FuzzySearch(filteredData, ["meaning"], { sort: true });
   const searchedData = searcher.search(searchQuery);
 
-  const handleChange = (event: React.FormEvent<HTMLSelectElement>) =>
-    setView(event.currentTarget.value as FilterView);
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) =>
+    setView(event.target.value as FilterView);
 
-  const handleSearch = (event: React.FormEvent<HTMLInputElement>) => {
-    setSearchQuery(event.currentTarget.value);
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
   };
 
   return (
