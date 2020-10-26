@@ -45,25 +45,25 @@ const SelectorPanel: React.FC<Props> = ({
   })
 
   const handleSelectAll = () => {
-    const newSet = new Set(selectedData)
-    searchedData.forEach(entry => newSet.add(entry.value))
-    setSelectedData(newSet)
+    const newSet = new Set(selectedData);
+    searchedData.forEach(entry => newSet.add(entry.value));
+    setSelectedData(newSet);
   }
 
   const handleRemoveSelected = () => {
-    const newSet = new Set(selectedData)
-    searchedData.forEach(entry => newSet.delete(entry.value))
-    setSelectedData(newSet)
+    const newSet = new Set(selectedData);
+    searchedData.forEach(entry => newSet.delete(entry.value));
+    setSelectedData(newSet);
   }
 
   const handleOnClick = (selected: boolean, value: string) => {
     if (selected) {
       return () => {
-        const newSet = new Set(selectedData)
-        if (newSet.delete(value)) setSelectedData(newSet)
+        const newSet = new Set(selectedData);
+        if (newSet.delete(value)) setSelectedData(newSet);
       }
     } else { 
-      return () => setSelectedData(new Set(selectedData).add(value))
+      return () => setSelectedData(new Set(selectedData).add(value));
     }
   }
 
