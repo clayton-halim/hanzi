@@ -41,16 +41,17 @@ const SelectorPanel: React.FC<Props> = ({
     console.log('Rendered SelectorPanel');
   })
 
-  // const handleSelectAll = () => {
-  //   searchedData.forEach(entry => {
-  //     if (hanziSet.has(entry.character)) return
-  //     onClick(true, entry.character);
-  //   })
-  // }
+  const handleSelectAll = () => {
+    const newSet = new Set(selectedData)
+    searchedData.forEach(entry => newSet.add(entry.value))
+    setSelectedData(newSet)
+  }
 
-  // const handleRemoveSelected = () => {
-    
-  // }
+  const handleRemoveSelected = () => {
+    const newSet = new Set(selectedData)
+    searchedData.forEach(entry => newSet.delete(entry.value))
+    setSelectedData(newSet)
+  }
 
   const handleOnClick = (selected: boolean, value: string) => {
     if (selected) {
@@ -74,11 +75,9 @@ const SelectorPanel: React.FC<Props> = ({
         <select value={filterOption} onChange={handleChange}>
           { filterOptions.map(({ name, value }) => <option key={value} value={value}>{name}</option>)}
         </select>
-      </div>
-      {/* <div className="select-tool">
         <button onClick={handleSelectAll}>Select all</button>
-        <button onClick={handleSelectAll}>Remove selected</button>
-      </div> */}
+        <button onClick={handleRemoveSelected}>Remove selected</button>
+      </div>
       <div className="view">
         {searchedData.map(entry => {
           const isSelected = selectedData.has(entry.value);
