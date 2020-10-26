@@ -1,3 +1,4 @@
-import HanziRow from "./HanziRow";
+import HanziRow from './HanziRow';
 
+export * from './HanziRow'
 export default HanziRow;

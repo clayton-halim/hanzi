@@ -3,7 +3,7 @@ import React from "react";
 import HanziBox from "../HanziBox";
 import "./HanziRow.css";
 
-type Props = {
+export type Props = {
   boxes: number;
   character: string;
   meaning: string;

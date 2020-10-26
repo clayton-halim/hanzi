@@ -1,54 +1,67 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FuzzySearch from "fuzzy-search";
 
 import Selector from "../Selector";
-import { HanziData } from "../../types";
 import "./SelectorPanel.css";
 
+export type FilterOptions = { name: string, value: string }[];
+
 export type Props = {
-  data: HanziData[];
-  selectedHanzi: Set<string>;
-  onClick: (selected: boolean, hanzi: string) => void;
+  data: { value: string, [ other: string ]: any }[];
+  filterOption: string,
+  filterOptions: FilterOptions,
+  setFilterOption: Function;
+  selectedData: Set<string>;
+  setSelectedData: Function;
 };
 
-type FilterView = "freq" | "hsk1" | "hsk2" | "hsk3" | "hsk4" | "hsk5" | "hsk6";
-
-function filterData(data: HanziData[], view: FilterView) {
-  switch (view) {
-    case "freq":
-      return [...data].sort(entry => entry.frequency_rank);
-    case "hsk1":
-      return data.filter(entry => entry.hsk === 1);
-    case "hsk2":
-      return data.filter(entry => entry.hsk === 2);
-    case "hsk3":
-      return data.filter(entry => entry.hsk === 3);
-    case "hsk4":
-      return data.filter(entry => entry.hsk === 4);
-    case "hsk5":
-      return data.filter(entry => entry.hsk === 5);
-    case "hsk6":
-      return data.filter(entry => entry.hsk === 6);
-  }
-}
 
 const SelectorPanel: React.FC<Props> = ({
   data,
-  onClick,
-  selectedHanzi
+  filterOption,
+  filterOptions,
+  setFilterOption,
+  selectedData,
+  setSelectedData
 }: Props) => {
-  const [view, setView] = useState<FilterView>("freq");
   const [searchQuery, setSearchQuery] = useState("");
-  const filteredData = filterData(data, view);
-  const searcher = new FuzzySearch(filteredData, ["meaning"], { sort: true });
+  const searcher = new FuzzySearch(data, ["meaning"], { sort: true });
   const searchedData = searcher.search(searchQuery);
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) =>
-    setView(event.target.value as FilterView);
+    setFilterOption(event.target.value);
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
+
+  console.log('Rendering SelectorPanel');
+
+  useEffect(() => {
+    console.log('Rendered SelectorPanel');
+  })
+
+  // const handleSelectAll = () => {
+  //   searchedData.forEach(entry => {
+  //     if (hanziSet.has(entry.character)) return
+  //     onClick(true, entry.character);
+  //   })
+  // }
+
+  // const handleRemoveSelected = () => {
+    
+  // }
+
+  const handleOnClick = (selected: boolean, value: string) => {
+    if (selected) {
+      return () => {
+        const newSet = new Set(selectedData)
+        if (newSet.delete(value)) setSelectedData(newSet)
+      }
+    } else { 
+      return () => setSelectedData(new Set(selectedData).add(value))
+    }
+  }
 
   return (
     <div className="selector-panel">
@@ -58,25 +71,24 @@ const SelectorPanel: React.FC<Props> = ({
       </div>
       <div className="select-tool">
         <p>Filter: </p>
-        <select value={view} onChange={handleChange}>
-          <option value="freq">Hanzi Frequency</option>
-          <option value="hsk1">HSK 1</option>
-          <option value="hsk2">HSK 2</option>
-          <option value="hsk3">HSK 3</option>
-          <option value="hsk4">HSK 4</option>
-          <option value="hsk5">HSK 5</option>
-          <option value="hsk6">HSK 6</option>
+        <select value={filterOption} onChange={handleChange}>
+          { filterOptions.map(({ name, value }) => <option key={value} value={value}>{name}</option>)}
         </select>
       </div>
+      {/* <div className="select-tool">
+        <button onClick={handleSelectAll}>Select all</button>
+        <button onClick={handleSelectAll}>Remove selected</button>
+      </div> */}
       <div className="view">
-        {searchedData.map(entry => (
-          <Selector
-            key={entry.character}
-            character={entry.character}
-            selected={selectedHanzi.has(entry.character)}
-            onClick={selected => onClick(selected, entry.character)}
-          />
-        ))}
+        {searchedData.map(entry => {
+          const isSelected = selectedData.has(entry.value);
+          return (
+            <Selector
+              value={entry.value}
+              selected={isSelected}
+              onClick={handleOnClick(isSelected, entry.value)}
+            />
+         )})}
       </div>
     </div>
   );
