@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "45189d1968a60e29af09616b8618f31c",
+    "revision": "9613a81dd61406045123a5372af0f8c9",
     "url": "/hanzi/index.html"
   },
   {
-    "revision": "77480cc98fdf561b1212",
-    "url": "/hanzi/static/css/main.440bcdce.chunk.css"
+    "revision": "ca054eef6593aa1a6e4c",
+    "url": "/hanzi/static/css/main.b713a547.chunk.css"
   },
   {
-    "revision": "e41703112100c8496477",
-    "url": "/hanzi/static/js/2.4b9733fa.chunk.js"
+    "revision": "b60ed1206bcd15e447ee",
+    "url": "/hanzi/static/js/2.97e7e08b.chunk.js"
   },
   {
     "revision": "596e4823497e45004d2db4c50beba3f3",
-    "url": "/hanzi/static/js/2.4b9733fa.chunk.js.LICENSE.txt"
+    "url": "/hanzi/static/js/2.97e7e08b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "77480cc98fdf561b1212",
-    "url": "/hanzi/static/js/main.aa3d63f7.chunk.js"
+    "revision": "ca054eef6593aa1a6e4c",
+    "url": "/hanzi/static/js/main.64a60186.chunk.js"
   },
   {
     "revision": "276e880c3207e9692a94",

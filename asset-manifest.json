@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/hanzi/static/css/main.440bcdce.chunk.css",
-    "main.js": "/hanzi/static/js/main.aa3d63f7.chunk.js",
-    "main.js.map": "/hanzi/static/js/main.aa3d63f7.chunk.js.map",
+    "main.css": "/hanzi/static/css/main.b713a547.chunk.css",
+    "main.js": "/hanzi/static/js/main.64a60186.chunk.js",
+    "main.js.map": "/hanzi/static/js/main.64a60186.chunk.js.map",
     "runtime-main.js": "/hanzi/static/js/runtime-main.27bafe1f.js",
     "runtime-main.js.map": "/hanzi/static/js/runtime-main.27bafe1f.js.map",
-    "static/js/2.4b9733fa.chunk.js": "/hanzi/static/js/2.4b9733fa.chunk.js",
-    "static/js/2.4b9733fa.chunk.js.map": "/hanzi/static/js/2.4b9733fa.chunk.js.map",
+    "static/js/2.97e7e08b.chunk.js": "/hanzi/static/js/2.97e7e08b.chunk.js",
+    "static/js/2.97e7e08b.chunk.js.map": "/hanzi/static/js/2.97e7e08b.chunk.js.map",
     "index.html": "/hanzi/index.html",
-    "precache-manifest.4da9a04bab1c10a6cc9100c6a814e7ef.js": "/hanzi/precache-manifest.4da9a04bab1c10a6cc9100c6a814e7ef.js",
+    "precache-manifest.129ab618535820f32cc3172e86afd099.js": "/hanzi/precache-manifest.129ab618535820f32cc3172e86afd099.js",
     "service-worker.js": "/hanzi/service-worker.js",
-    "static/css/main.440bcdce.chunk.css.map": "/hanzi/static/css/main.440bcdce.chunk.css.map",
-    "static/js/2.4b9733fa.chunk.js.LICENSE.txt": "/hanzi/static/js/2.4b9733fa.chunk.js.LICENSE.txt",
+    "static/css/main.b713a547.chunk.css.map": "/hanzi/static/css/main.b713a547.chunk.css.map",
+    "static/js/2.97e7e08b.chunk.js.LICENSE.txt": "/hanzi/static/js/2.97e7e08b.chunk.js.LICENSE.txt",
     "static/media/index.css": "/hanzi/static/media/strokeorder.2935323f.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.27bafe1f.js",
-    "static/js/2.4b9733fa.chunk.js",
-    "static/css/main.440bcdce.chunk.css",
-    "static/js/main.aa3d63f7.chunk.js"
+    "static/js/2.97e7e08b.chunk.js",
+    "static/css/main.b713a547.chunk.css",
+    "static/js/main.64a60186.chunk.js"
   ]
 }
