@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import FuzzySearch from "fuzzy-search";
 
+import useDebouncedValue from '../../hooks/useDebouncedValue';
 import Selector from "../Selector";
 import "./SelectorPanel.css";
 
@@ -15,6 +16,7 @@ export type Props = {
   setSelectedData: Function;
 };
 
+const SEARCH_DELAY = 250;
 
 const SelectorPanel: React.FC<Props> = ({
   data,
@@ -25,8 +27,9 @@ const SelectorPanel: React.FC<Props> = ({
   setSelectedData
 }: Props) => {
   const [searchQuery, setSearchQuery] = useState("");
+  const debouncedSearchQuery = useDebouncedValue(searchQuery, SEARCH_DELAY);
   const searcher = new FuzzySearch(data, ["meaning"], { sort: true });
-  const searchedData = searcher.search(searchQuery);
+  const searchedData = searcher.search(debouncedSearchQuery);
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) =>
     setFilterOption(event.target.value);
